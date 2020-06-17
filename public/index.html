@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+
+<head>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="index.js"></script>
+</head>
+
+<body>
+    <h3>GET /message value <button id="btGetMessage">GET /message</button></h3>
+    <p id="get">0</p>
+
+    <h3>Live socket update value</h3>
+    <p id="live">0</p>
+
+    <b>POST /message :<input type="text" id="postMessageInput"><button id="btPostMessage">Send Request</button></b>
+</body>
