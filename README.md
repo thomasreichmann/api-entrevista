@@ -1,6 +1,8 @@
-## API de exemplo
+## API
 
 Essa api esta disponivel em http://18.230.61.98/ Alem de aceitar os endpoints abaixo, existe um exemplo de uma frontend básica utilizando todos os endpoints da api no ip.
+
+A maquina hospedando a api esta utilizando [pm2](https://www.npmjs.com/package/pm2) para automaticamente iniciar o processo node caso a máquina reinicie.
 
 ## Endpoints
 - ##### GET /memory_usage
