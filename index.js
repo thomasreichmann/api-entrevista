@@ -9,8 +9,24 @@ const io = require('socket.io')(server);
 
 const port = process.env.PORT
 
+const mysql = require('mysql');
+
+let pool = mysql.createPool({
+    connectionLimit: 10,
+    host: process.env.MYSQL_HOST,
+    user: process.env.MYSQL_USER,
+    password: process.env.MYSQL_PASS,
+    database: process.env.MYSQL_DB
+});
+
 const messageEvent = 'newMessage'
-let localMessage = 'Init message'
+let localMessage = 'Init message';
+
+pool.query(`SELECT \`message\` FROM \`messages\` WHERE \`id\` = 1;`, (err, row) => {
+    if (err) console.error(err)
+
+    localMessage = row[0].message
+})
 
 server.listen(port);
 
@@ -34,7 +50,7 @@ app.get('/message', async (req, res) => {
         // Decide se a mensagem e um numero, se sim delay sera o numero, caso a mensagem seja texto, delay sera 0
         let delay = isNaN(localMessage) ? 0 : parseInt(localMessage)
         console.log(`GET /message sendo enviado com ${delay}ms de delay`)
-        // Em teoria nessa implementacao mesmo se delay = 0, setTimeout agregaria um delay de ate 10ms na execucao
+        // Em teoria com essa implementacao mesmo se delay = 0, setTimeout agregaria um delay de ate 10ms na execucao
         await timeout(delay)
 
         res.send(localMessage)
@@ -54,6 +70,9 @@ app.post('/message', (req, res) => {
     io.sockets.emit(messageEvent, localMessage)
 
     res.sendStatus(204)
+
+    // Update a mensagem na database apos mandar a resposta para evitar esperar pela query ser feita
+    pool.query(`UPDATE \`messages\` SET \`message\` = '${localMessage}' WHERE \`id\` = 1;`)
 })
 
 app.get('/live', (req, res) => {
