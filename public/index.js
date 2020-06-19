@@ -1,4 +1,4 @@
-const socket = io.connect('http://localhost:3000');
+const socket = io.connect('http://localhost:80');
 
 $.get("live", (requestData) => {
     $('#getlive').text(requestData.message)
