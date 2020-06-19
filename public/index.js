@@ -8,7 +8,7 @@ $.get("live", (requestData) => {
 
     socket.on(requestData.event, (socketData) => {
         $('#live').text(socketData)
-    })  
+    })
 })
 
 $(document).ready(function () {
@@ -22,6 +22,8 @@ $(document).ready(function () {
 
     // POST /message com o valor do <input>
     $('#btPostMessage').click(() => {
-        $.post("message", {newMessage: $("#postMessageInput").val()})
+        $.post("message", {
+            newMessage: $("#postMessageInput").val()
+        })
     })
 })
