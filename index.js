@@ -7,7 +7,7 @@ const app = express()
 const server = require('http').Server(app);
 const io = require('socket.io')(server);
 
-const port = 80
+const port = process.env.PORT
 
 const messageEvent = 'newMessage'
 let localMessage = 'Init message'
