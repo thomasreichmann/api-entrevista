@@ -20,6 +20,13 @@ $(document).ready(function () {
         })
     })
 
+    // GET /message e atualiza o <p> do site
+    $('#btGetMem').click(() => {
+        $.get("memory_usage", (data) => {
+            $('#getMem').text(data)
+        })
+    })
+
     // POST /message com o valor do <input>
     $('#btPostMessage').click(() => {
         $.post("message", {
