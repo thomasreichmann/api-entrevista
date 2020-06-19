@@ -1,6 +1,6 @@
 // IP e port precisam ser alterados para os da maquina hosteando a api quando em "producao"
 // caso contrario, localhost e mais pratico para desenvolvimento
-const socket = io.connect(`${process.env.FRONT_IP}:${process.env.PORT}`);
+const socket = io.connect(`localhost`);
 
 // GET /live recebe o eventname e prepara o socket para receber o evento
 $.get("live", (requestData) => {
