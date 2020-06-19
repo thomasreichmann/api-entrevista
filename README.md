@@ -41,10 +41,10 @@ $.get("live", (requestData) => {
 
 ---
 ## Requerimentos para iniciar a api
-- Uma database mySQL com uma table ``messages`` com colunas ``id`` e ``message`` com uma entrada com id ``1``
+- Uma database mySQL com uma table ``messages`` com colunas ``id`` e ``message`` com id = ``1``
 - Um arquivo .env ou variáveis de ambiente configuradas, existe um arquivo exemplo no git: ``env.example``
    ##### Para prod.
-- É necessario alterar o ip onde o socket.io se conecta no arquivo ``/public/index.js`` como descrito nos comentários
+- É necessario alterar o ip onde o socket.io se conecta no arquivo ``/public/index.js`` como descrito nos comentários para a frontend de exemplo funcionar
 
 
 ## Monitoramento da API
