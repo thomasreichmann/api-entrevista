@@ -42,10 +42,11 @@ $.get("live", (requestData) => {
 - Uma database mySQL com uma table ``messages`` com colunas ``id`` e ``message`` com uma entrada com id ``1``
 - Um arquivo .env ou variáveis de ambiente configuradas, existe um arquivo exemplo no git: ``env.example``
    ##### Para prod.
-- E necessario alterar o ip onde o socket.io se conecta no arquivo ``/public/index.js`` como descrito nos comentários
+- É necessario alterar o ip onde o socket.io se conecta no arquivo ``/public/index.js`` como descrito nos comentários
 
 
 ## Monitoramento da API
 
 A api está sendo hospedada junto ao netdata para monitoramento, ele tem autenticação utilizando o nginx como proxy.
-E possivel acessar o netdata pelo http://18.230.61.98:3000 com o usuario e senha `admin:admin`
+
+É possivel acessar o netdata pelo http://18.230.61.98:3000 com o usuario e senha `admin:admin`
