@@ -4,7 +4,7 @@ const socket = io.connect(`localhost`);
 
 // GET /live recebe o eventname e prepara o socket para receber o evento
 $.get("live", (requestData) => {
-    $('#getlive').text(requestData.message)
+    $('#live').text(requestData.message)
 
     socket.on(requestData.event, (socketData) => {
         $('#live').text(socketData)
